@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Ask Pantry Match AI Chef what to cook with the ingredients you have.">
+  <title>AI Chef | Pantry Match</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=3">
+</head>
+<body class="dashboard-page chef-page">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="dashboard-header">
+    <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">P</span>Pantry Match</a>
+  <nav class="primary-nav" aria-label="Main">
+         <a href="index.html">Dashboard</a>
+        <a href="chef.html" aria-current="page">AI Chef</a>
+</nav>
+  </header>
+
+  <main id="main" class="dashboard-shell">
+    <section class="studio-panel chef-studio" aria-labelledby="chef-title">
+      <div class="studio-heading">
+        <p class="eyebrow">YOUR PERSONAL KITCHEN ASSISTANT</p>
+        <h1 id="chef-title">What are we cooking today?</h1>
+        <p>Tell your Chef what is in your kitchen, then get a recipe, substitution, or meal idea that fits.</p>
+      </div>
+  <div class="studio-tabs" aria-label="Pantry Match pages">
+  <a class="is-active" href="chef.html" aria-current="page"><span aria-hidden="true">✧</span> AI Chef</a>
+  <a href="index.html"><span aria-hidden="true">✣</span> Dashboard</a>
+</div>
+    </section>
+
+    <div class="chef-page-layout">
+      <section class="chef-chat-panel" aria-label="AI Chef chat">
+        <div class="chef-chat-header">
+          <div class="chef-avatar" aria-hidden="true">👩🏽‍🍳</div>
+          <div>
+            <h2>Pantry Match Chef</h2>
+            <p><span class="online-dot"></span> <span id="chef-status">Ready to help</span></p>
+          </div>
+          <button id="clear-chat" class="text-button" type="button">Clear chat</button>
+        </div>
+        <div id="chat-messages" class="chef-messages" aria-live="polite" aria-relevant="additions">
+          <article class="message message--assistant">
+            <div class="message-avatar">👩🏽‍🍳</div>
+            <div class="bubble">
+              <strong>Karibu! Welcome to your kitchen.</strong>
+              <p>Tell me what ingredients you have and I'll suggest meals, explain recipes, or help you use leftovers.</p>
+              <p class="small-muted">Tip: Add your ingredients in the pantry panel first.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="chef-page-prompts" aria-label="Suggested questions">
+          <button type="button" data-prompt="Suggest three meals I can make with my ingredients.">What can I cook?</button>
+          <button type="button" data-prompt="Give me a quick recipe that takes 20 minutes or less.">A quick meal</button>
+          <button type="button" data-prompt="Create a simple 3-day meal plan using affordable ingredients.">Meal plan</button>
+        </div>
+
+        <form id="chat-form" class="chef-composer">
+          <label class="sr-only" for="chat-input">Message your AI Chef</label>
+          <textarea id="chat-input" rows="2" maxlength="2000" placeholder="Ask your chef anything..." required></textarea>
+          <button id="send-button" class="btn" type="submit" aria-label="Send message" title="Send message">
+            <span>Send</span><span aria-hidden="true">➤</span>
+          </button>
+        </form>
+        <p class="chef-disclaimer">AI suggestions can be inaccurate. Check ingredient labels, allergies and food safety before cooking.</p>
+      </section>
+
+      <aside class="chef-kitchen-panel" aria-label="Your pantry and cooking preferences">
+        <div class="kitchen-heading">
+          <div>
+            <p class="eyebrow">YOUR KITCHEN</p>
+            <h2>Pantry & preferences</h2>
+          </div>
+          <span id="ingredient-count" class="count">0</span>
+        </div>
+        <p class="kitchen-hint">Add what you have. The Chef will use these ingredients in its suggestions.</p>
+        <form id="pantry-form" class="chef-pantry-form">
+          <label class="sr-only" for="pantry-input">Add pantry ingredients</label>
+          <input id="pantry-input" type="text" placeholder="e.g. eggs, tomatoes, rice">
+          <button class="btn btn--outline" type="submit">Add</button>
+        </form>
+        <ul id="pantry-chips" class="chips chef-pantry-chips" aria-live="polite"></ul>
+
+        <div class="chef-preferences-block">
+          <h3>Cooking preferences</h3>
+          <div class="preference-fields">
+            <label for="diet">Dietary preference</label>
+            <select id="diet">
+              <option value="">No preference</option>
+              <option>Vegetarian</option>
+              <option>Vegan</option>
+              <option>High protein</option>
+              <option>Gluten-free</option>
+              <option>Dairy-free</option>
+            </select>
+            <label for="budget">Budget per serving</label>
+            <select id="budget">
+              <option value="">Not specified</option>
+              <option>Low budget</option>
+              <option>Moderate budget</option>
+              <option>Flexible budget</option>
+            </select>
+            <label for="time">Available cooking time</label>
+            <select id="time">
+              <option value="">Any amount of time</option>
+              <option>15 minutes or less</option>
+              <option>30 minutes or less</option>
+              <option>45 minutes or less</option>
+            </select>
+          </div>
+        </div>
+        <p class="chef-privacy-note">Your pantry and preferences stay in this browser.</p>
+      </aside>
+    </div>
+  </main>
+  <footer class="dashboard-footer">Pantry Match · Cook more with what you have.</footer>
+  <script type="module" src="js/chef.js?v=4"></script>
+</body>
+</html>
